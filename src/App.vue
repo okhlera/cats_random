@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <fact :fact="fact"></fact>
+    <fact :fact="fact" ></fact>
 
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   },
    mounted(){
     this.axios.get('http://188.225.47.187/api/cats/random-fact.php').then((response)=>{
-      this.fact = response.data
+    
     }).catch(err=>{
       console.log('error', err)
     })

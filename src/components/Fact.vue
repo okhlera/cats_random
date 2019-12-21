@@ -10,14 +10,19 @@
 
 <script> 
  export default {
-  props: ['fact'],
-    mounted(){
-    this.axios.get('http://188.225.47.187/api/cats/random-fact.php').then((response)=>{
-      this.fact = response.data.results
-    }).catch(err=>{
-      console.log('errr', err)
-    })
-
+  data(){
+    return {fact:null}
+  },
+  methods:{
+    getFact(){
+      this.axios.get('http://188.225.47.187/api/cats/random-fact.php').then((response)=>{
+      this.fact = response.data})}
+    },
+  mounted(){
+    this.getFact()
+    setInterval(()=>{
+      this.getFact()},10000
+    )
   }  
 }
 </script>
